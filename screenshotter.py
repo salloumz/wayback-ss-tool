@@ -6,11 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 def get_wayback_snapshots(url):
-    """
-    Fetch all available snapshots for a given URL
-    from the Wayback Machine CDX API.
-    Returns a list of timestamps (strings).
-    """
+    
     cdx_url = "http://web.archive.org/cdx/search/cdx"
     params = {
         'url': url,
@@ -39,14 +35,6 @@ def set_window_size_for_full_page(driver):
     time.sleep(1)
 
 def click_and_screenshot(driver, button_text, output_path):
-    """
-    Click a button (by visible text) on the page to display the relevant tab,
-    wait a bit, resize to full page, and take a screenshot.
-    
-    :param driver: Selenium WebDriver
-    :param button_text: The visible text on the button (e.g. 'Individuals')
-    :param output_path: File path for saving the screenshot
-    """
     
     try:
         button = driver.find_element(By.XPATH, f"//button[contains(text(), '{button_text}')]")
